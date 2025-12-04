@@ -1,8 +1,13 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { PostagemModule } from './postagem/postagem.module';
 import { ConfigModule } from '@nestjs/config';
+
+import { Postagem } from './postagem/entities/postagem.entity';
+import { PostagemModule } from './postagem/postagem.module';
+
+import { Tema } from './tema/entities/tema.entity';
+import { TemaModule } from './tema/tema.module';
 
 @Module({
   imports: [
@@ -17,11 +22,13 @@ import { ConfigModule } from '@nestjs/config';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
+      entities: [Postagem, Tema],
       synchronize: true,
       autoLoadEntities: true,
     }),
 
     PostagemModule,
+    TemaModule,
   ],
 })
 export class AppModule {}
