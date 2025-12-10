@@ -6,8 +6,8 @@ import { TemaService } from './services/tema.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Tema])],
-  providers: [TemaService],
   controllers: [TemaController],
-  exports: [TypeOrmModule],
+  providers: [TemaService],
+  exports: [TypeOrmModule, TemaService],
 })
 export class TemaModule {}
