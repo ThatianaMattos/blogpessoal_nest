@@ -10,10 +10,13 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { Tema } from '../entities/tema.entity';
 import { TemaService } from '../services/tema.service';
 
+@ApiTags('Tema')
 @Controller('/temas')
+@ApiBearerAuth()
 export class TemaController {
   constructor(private readonly temaService: TemaService) {}
 
