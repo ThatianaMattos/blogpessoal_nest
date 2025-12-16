@@ -1,13 +1,8 @@
-import { ProdService } from './data/services/prod.service';
-import { DevService } from './data/services/dev.service; 
-import { ConfigModule } from '@nestjs/config';
-
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { Postagem } from './postagem/entities/postagem.entity';
-import { Tema } from './tema/entities/tema.entity';
-import { Usuario } from './usuario/entities/usuario.entity';
+import { ProdService } from './data/services/prod.service';
 
 import { PostagemModule } from './postagem/postagem.module';
 import { TemaModule } from './tema/tema.module';
